@@ -7,13 +7,10 @@
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scaleY(0.1);
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 .modal {
   padding: 40px;
@@ -28,6 +25,10 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  .backdrop.is-hidden & {
+    transform: translate(-50%, -50%) scaleY(0.1);
+  }
 }
 .close-btn {
   position: absolute;
@@ -45,9 +46,9 @@
   justify-content: center;
   align-items: center;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.icon-btn:hover {
-  fill: var(--bg-color);
+  &:hover {
+    fill: var(--bg-color);
+  }
 }
 .modal-form {
   display: flex;
@@ -81,13 +82,14 @@
   border-radius: 4px;
   padding-left: 42px;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal-form-input:focus {
-  outline: none;
-  border-color: var(--bg-color);
-}
-.modal-form-input:focus + .field-icon {
-  fill: var(--bg-color);
+  &:focus {
+    outline: none;
+    border-color: var(--bg-color);
+
+    & + .field-icon {
+      fill: var(--bg-color);
+    }
+  }
 }
 .field-icon {
   position: absolute;
@@ -107,6 +109,21 @@
   color: var(--text-color);
   margin-bottom: 30px;
   margin-top: 10px;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+    border: 1px solid #212121;
+    border-radius: 2px;
+    margin-right: 7px;
+
+    .modal-policy:checked + & {
+      background-image: url("../images/icon-check.svg");
+      border: none;
+    }
+  }
 }
 .modal-form-message {
   width: 100%;
@@ -117,23 +134,10 @@
   margin-top: 4px;
   resize: none;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal-form-message:focus {
-  outline: none;
-  border-color: var(--bg-color);
-}
-.modal-policy-text::before {
-  content: "";
-  display: inline-block;
-  width: 16px;
-  height: 15px;
-  border: 1px solid #212121;
-  border-radius: 2px;
-  margin-right: 7px;
-}
-.modal-policy:checked + .modal-policy-text::before {
-  background-image: url("../images/icon-check.svg");
-  border: none;
+  &:focus {
+    outline: none;
+    border-color: var(--bg-color);
+  }
 }
 .policy-text {
   color: var(--bg-color);
@@ -156,8 +160,8 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal-form-btn:hover,
-.modal-form-btn:focus {
-  background-color: #188ce8;
+  &:hover,
+  :focus {
+    background-color: #188ce8;
+  }
 }

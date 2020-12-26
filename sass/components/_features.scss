@@ -1,11 +1,16 @@
+.features {
+  min-height: 101px;
+  padding-bottom: 94px;
+  padding-top: 94px;
+}
 .features-items {
   display: flex;
 }
 .features-items-link {
   width: 270px;
-}
-.features-items-link:not(:last-child) {
-  margin-right: 30px;
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 .features-bg {
   display: flex;
@@ -30,9 +35,4 @@
   line-height: 1.52;
   letter-spacing: 0.03em;
   color: var(--text-color);
-}
-.features {
-  min-height: 101px;
-  padding-bottom: 94px;
-  padding-top: 94px;
 }

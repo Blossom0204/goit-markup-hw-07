@@ -5,11 +5,11 @@
 .work-items {
   display: flex;
 }
-.work-link:not(:last-child) {
-  margin-right: 30px;
-}
 .work-link {
   position: relative;
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 .work-link-text {
   position: absolute;
@@ -26,14 +26,4 @@
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-}
-.work-title,
-.team-title,
-.clients-title {
-  margin-bottom: 50px;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.172;
-  text-align: center;
-  letter-spacing: 0.03em;
 }
