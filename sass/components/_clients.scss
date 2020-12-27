@@ -22,10 +22,9 @@
 
   &:hover,
   :focus {
-    color: var(--bg-color);
-    border-color: var(--bg-color);
-    ,
-    :not(:last-child) {
+    color: $bg-color;
+    border-color: $bg-color;
+    & :not(:last-child) {
       margin-right: 30px;
     }
   }
